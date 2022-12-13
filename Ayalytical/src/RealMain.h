@@ -45,6 +45,14 @@ typedef struct rxMsg //TODO - REMOVE THIS WHEN USB COMMS ARE IMPLEMENTED
 //////////////////////////////////////////////////////////////////////////
 // uC pins
 //////////////////////////////////////////////////////////////////////////
+#define  LED_TOP			IOPORT_CREATE_PIN(PORTK, 7) // LED TOP pin
+#define  LED_TOP_STATUS		IOPORT_CREATE_PIN(PORTK, 5) // LED TOP Status
+
+#define  LED_BOTTOM			IOPORT_CREATE_PIN(PORTK, 4) // LED TOP pin
+#define  LED_BOTTOM_STATUS	IOPORT_CREATE_PIN(PORTK, 3) // LED TOP Status
+
+#define CAMERA_TRIGGER		IOPORT_CREATE_PIN(PORTK, 2) //camera trigger pin
+
 #define ROD_POS_SWITCH		IOPORT_CREATE_PIN(PORTB, 2) //Rod raised position switch
 #define PUMP_PWM			IOPORT_CREATE_PIN(PORTF, 6) //Pump pwm enable (if using timed control)
 #define HEAT_PWM			IOPORT_CREATE_PIN(PORTC, 1) //Heat pwm enable

@@ -519,6 +519,13 @@ void init_IO(void)
 	ioport_configure_pin(_STATUS_RED_LED, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(_STATUS_GREEN_LED, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	
+	ioport_configure_pin(LED_TOP, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	ioport_configure_pin(LED_TOP_STATUS, IOPORT_DIR_INPUT);
+	ioport_configure_pin(LED_BOTTOM, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);	
+	ioport_configure_pin(LED_BOTTOM_STATUS, IOPORT_DIR_INPUT);
+	
+	ioport_configure_pin(CAMERA_TRIGGER, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+	
 	//Temporary fix for ADC reference use for 3.3V
 	//NOTE - BOARD MOD REQUIRED FOR THIS TO WORK
 	ioport_configure_pin(AVCC_REF_A, IOPORT_PULL_UP);
