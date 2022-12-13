@@ -191,24 +191,24 @@ void init_stepper_motor_pins(void)
 	ioport_configure_pin(MIXER_DIAG, IOPORT_DIR_INPUT);
 	
 	//Initialize all lower control pins
-	ioport_configure_pin(LOWER_MIXER_DIR, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Default to CW rotation
-	ioport_configure_pin(LOWER_MIXER_STEP, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
-	ioport_configure_pin(_LOWER_MIXER_RST, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Needs to be high for operation
-	ioport_configure_pin(LOWER_MIXER_MS1, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to full step resolution
-	ioport_configure_pin(LOWER_MIXER_MS0, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
-	ioport_configure_pin(LOWER_MIXER_EN, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to disabled
-	ioport_configure_pin(LOWER_MIXER_DIAG, IOPORT_DIR_INPUT);
+	//ioport_configure_pin(LOWER_MIXER_DIR, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Default to CW rotation
+	//ioport_configure_pin(LOWER_MIXER_STEP, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+	//ioport_configure_pin(_LOWER_MIXER_RST, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Needs to be high for operation
+	//ioport_configure_pin(LOWER_MIXER_MS1, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to full step resolution
+	//ioport_configure_pin(LOWER_MIXER_MS0, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+	//ioport_configure_pin(LOWER_MIXER_EN, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to disabled
+	//ioport_configure_pin(LOWER_MIXER_DIAG, IOPORT_DIR_INPUT);
 	
 	//Initialize all pump control pins
-	ioport_configure_pin(PUMP_DIR, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Default to CW rotation
-	ioport_configure_pin(PUMP_STEP, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
-	ioport_configure_pin(_PUMP_RST, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Needs to be high for operation
-	ioport_configure_pin(PUMP_MS1, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to full step resolution
-	ioport_configure_pin(PUMP_MS0, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+	//ioport_configure_pin(PUMP_DIR, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Default to CW rotation
+	//ioport_configure_pin(PUMP_STEP, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
+	//ioport_configure_pin(_PUMP_RST, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH); //Needs to be high for operation
+	//ioport_configure_pin(PUMP_MS1, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to full step resolution
+	//ioport_configure_pin(PUMP_MS0, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW);
 	
 	//This pin is now used for mixer step
 	//ioport_configure_pin(PUMP_EN, IOPORT_DIR_OUTPUT | IOPORT_INIT_LOW); //Default to disabled
-	ioport_configure_pin(PUMP_DIAG, IOPORT_DIR_INPUT);
+	//ioport_configure_pin(PUMP_DIAG, IOPORT_DIR_INPUT);
 }
 
 //Gets current holding current of motor in percent of Ismax
@@ -367,14 +367,14 @@ void reset_faults(motorConfig *motor)
 			ioport_set_pin_low(_MIXER_RST);
 			ioport_set_pin_high(_MIXER_RST);
 			break;
-		case LOWER_MIXER:
-			ioport_set_pin_low(_LOWER_MIXER_RST);
-			ioport_set_pin_high(_LOWER_MIXER_RST);
-			break;
-		case PUMP:
-			ioport_set_pin_low(_PUMP_RST);
-			ioport_set_pin_high(_PUMP_RST);
-			break;
+//		case LOWER_MIXER:
+//			ioport_set_pin_low(_LOWER_MIXER_RST);
+//			ioport_set_pin_high(_LOWER_MIXER_RST);
+//			break;
+//		case PUMP:
+//			ioport_set_pin_low(_PUMP_RST);
+//			ioport_set_pin_high(_PUMP_RST);
+//			break;
 	}
 }
 

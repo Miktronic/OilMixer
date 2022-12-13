@@ -26,8 +26,8 @@ void init_SPI_IO(void)
 	ioport_configure_pin(_TEST_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(_ROD_POS_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);		//Configure slave chip selects as high outputs
 	ioport_configure_pin(_MIXER_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
-	ioport_configure_pin(_LOWER_MIXER_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
-	ioport_configure_pin(_PUMP_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	//ioport_configure_pin(_LOWER_MIXER_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
+	//ioport_configure_pin(_PUMP_CS, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);
 	ioport_configure_pin(STEPPER_SDI, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);		//Configure slave data in as high output
 	ioport_configure_pin(STEPPER_SDO, IOPORT_DIR_INPUT);							//Configure slave data out as input
 	ioport_configure_pin(STEPPER_SCK, IOPORT_DIR_OUTPUT | IOPORT_INIT_HIGH);		//Configure slave clock as high output

@@ -326,7 +326,7 @@ static void mixer_timer_overflow_callback(void)
 //////////////////////////////////////////////////////////////////////////
 // Lower Mixer Timer Callback - Handles specified steps of stepper
 //////////////////////////////////////////////////////////////////////////
-static void lower_mixer_timer_overflow_callback(void)
+/*static void lower_mixer_timer_overflow_callback(void)
 {
 	if (systemMotors[LOWER_MIXER].specifiedSteps) //Motor is configured for specific steps to move
 	{
@@ -348,11 +348,11 @@ static void lower_mixer_timer_overflow_callback(void)
 		}
 	}
 }
-
+*/
 //////////////////////////////////////////////////////////////////////////
 // Pump Timer Callback - Handles specified steps of stepper
 //////////////////////////////////////////////////////////////////////////
-static void pump_timer_overflow_callback(void)
+/*static void pump_timer_overflow_callback(void)
 {
 	if (systemMotors[PUMP].specifiedSteps) //Motor is configured for specific steps to move
 	{
@@ -374,7 +374,7 @@ static void pump_timer_overflow_callback(void)
 		}
 	}
 }
-
+*/
 //////////////////////////////////////////////////////////////////////////
 //This is the real main function called from generated main.c
 //////////////////////////////////////////////////////////////////////////
@@ -573,34 +573,34 @@ void init_motor_structs(void)
 	systemMotors[MIXER].PWMDuty = 50;
 	
 	//Initialize uC pins for lower mixer stepper driver and pwm settings
-	systemMotors[LOWER_MIXER].motorID = LOWER_MIXER;
-	systemMotors[LOWER_MIXER].controlPins.dir = LOWER_MIXER_DIR;
-	systemMotors[LOWER_MIXER].controlPins.step = LOWER_MIXER_STEP;
-	systemMotors[LOWER_MIXER].controlPins._rstPort = _LOWER_MIXER_RST;
-	systemMotors[LOWER_MIXER].controlPins.ms1 = LOWER_MIXER_MS1;
-	systemMotors[LOWER_MIXER].controlPins.ms0 = LOWER_MIXER_MS0;
-	systemMotors[LOWER_MIXER].controlPins.en = LOWER_MIXER_EN;
-	systemMotors[LOWER_MIXER].controlPins._cs = _LOWER_MIXER_CS;
-	systemMotors[LOWER_MIXER].controlPins.diag = LOWER_MIXER_DIAG;
-	systemMotors[LOWER_MIXER].PWMTC = PWM_TCD0;
-	systemMotors[LOWER_MIXER].PWMChan = PWM_CH_B;
-	systemMotors[LOWER_MIXER].PWMDuty = 50;
+	//systemMotors[LOWER_MIXER].motorID = LOWER_MIXER;
+	//systemMotors[LOWER_MIXER].controlPins.dir = LOWER_MIXER_DIR;
+	//systemMotors[LOWER_MIXER].controlPins.step = LOWER_MIXER_STEP;
+	//systemMotors[LOWER_MIXER].controlPins._rstPort = _LOWER_MIXER_RST;
+	//systemMotors[LOWER_MIXER].controlPins.ms1 = LOWER_MIXER_MS1;
+	//systemMotors[LOWER_MIXER].controlPins.ms0 = LOWER_MIXER_MS0;
+	//systemMotors[LOWER_MIXER].controlPins.en = LOWER_MIXER_EN;
+	//systemMotors[LOWER_MIXER].controlPins._cs = _LOWER_MIXER_CS;
+	//systemMotors[LOWER_MIXER].controlPins.diag = LOWER_MIXER_DIAG;
+	//systemMotors[LOWER_MIXER].PWMTC = PWM_TCD0;
+	//systemMotors[LOWER_MIXER].PWMChan = PWM_CH_B;
+	//systemMotors[LOWER_MIXER].PWMDuty = 50;
 	
 	//Initialize uC pins for pump stepper driver and pwm settings
-	systemMotors[PUMP].motorID = PUMP;
-	systemMotors[PUMP].controlPins.dir = PUMP_DIR;
-	systemMotors[PUMP].controlPins.step = PUMP_STEP;
-	systemMotors[PUMP].controlPins._rstPort = _PUMP_RST;
-	systemMotors[PUMP].controlPins.ms1 = PUMP_MS1;
-	systemMotors[PUMP].controlPins.ms0 = PUMP_MS0;
+	//systemMotors[PUMP].motorID = PUMP;
+	//systemMotors[PUMP].controlPins.dir = PUMP_DIR;
+	//systemMotors[PUMP].controlPins.step = PUMP_STEP;
+	//systemMotors[PUMP].controlPins._rstPort = _PUMP_RST;
+	//systemMotors[PUMP].controlPins.ms1 = PUMP_MS1;
+	//systemMotors[PUMP].controlPins.ms0 = PUMP_MS0;
 	//systemMotors[PUMP].controlPins.en = PUMP_EN; //This pin was changed to something else, define unused pin so the ioport call is maintained
-	systemMotors[PUMP].controlPins.en = IOPORT_CREATE_PIN(PORTF, 6);
+	//systemMotors[PUMP].controlPins.en = IOPORT_CREATE_PIN(PORTF, 6);
 	
-	systemMotors[PUMP].controlPins._cs = _PUMP_CS;
-	systemMotors[PUMP].controlPins.diag = PUMP_DIAG;
-	systemMotors[PUMP].PWMTC = PWM_TCC0;
-	systemMotors[PUMP].PWMChan = PWM_CH_A;
-	systemMotors[PUMP].PWMDuty = 50;
+	//systemMotors[PUMP].controlPins._cs = _PUMP_CS;
+	//systemMotors[PUMP].controlPins.diag = PUMP_DIAG;
+	//systemMotors[PUMP].PWMTC = PWM_TCC0;
+	//systemMotors[PUMP].PWMChan = PWM_CH_A;
+	//systemMotors[PUMP].PWMDuty = 50;
 	
 	//Intialize PWM structs for motor
 	for (uint8_t i = 0; i < NUM_MOTORS; i++)
@@ -617,12 +617,12 @@ void init_motor_structs(void)
 	tc_set_overflow_interrupt_level(&TCF0, TC_INT_LVL_MED);
 	
 	//Overflow interrupt for lower mixer
-	tc_set_overflow_interrupt_callback(&TCD0, lower_mixer_timer_overflow_callback);
-	tc_set_overflow_interrupt_level(&TCD0, TC_INT_LVL_MED);
+	//tc_set_overflow_interrupt_callback(&TCD0, lower_mixer_timer_overflow_callback);
+	//tc_set_overflow_interrupt_level(&TCD0, TC_INT_LVL_MED);
 	
 	//Overflow interrupt for pump
-	tc_set_overflow_interrupt_callback(&TCC0, pump_timer_overflow_callback);
-	tc_set_overflow_interrupt_level(&TCC0, TC_INT_LVL_MED);
+	//tc_set_overflow_interrupt_callback(&TCC0, pump_timer_overflow_callback);
+	//tc_set_overflow_interrupt_level(&TCC0, TC_INT_LVL_MED);
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -1071,12 +1071,12 @@ uint8_t convert_received_motor_to_index(uint8_t recChar)
 		case 85:
 			return MIXER;
 			break;
-		case 76:
-			return LOWER_MIXER;
-			break;
-		case 80:
-			return PUMP;
-			break;
+//		case 76:
+//			return LOWER_MIXER;
+//			break;
+//		case 80:
+//			return PUMP;
+//			break;
 		default:
 			return 255; //No match for received motor (this will be caught in error detection later)
 			break;
